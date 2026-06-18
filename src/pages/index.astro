@@ -341,6 +341,37 @@
         object-fit: contain;
         mix-blend-mode: multiply;
       }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+       .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+      }
+      
+      .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-desc {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -373,18 +404,22 @@
       <main>
         <section class="hero">
           <div class="hero-content">
-            <span class="badge">Cybersecurity</span>
-            <h1>Mustafa<!--<br />--><span> Awad</span></h1>
+            <span class="badge">Cloud Security</span>
+            <h1>Mustafa Awad <!--<br />--><span>Projects, Write-ups & Learning</span></h1>
             <p class="description">
               Building expertise in cloud security through hands-on projects, structured learning, and technical writing. This website serves as a public record of that journey.
             </p>
-            <div class="buttons">
+            <!-- <div class="buttons">
               <a href="/product" style="text-decoration: none;">
                 <button class="btn btn-primary">Current focus</button>
               </a>
-              <!-- <a href="/value" style="text-decoration: none;">
+              <a href="/value" style="text-decoration: none;">
                 <button class="btn btn-secondary">查看工作原理</button>
-              </a> -->
+              </a> 
+            </div> -->
+             <div class="feature-card">
+              <h3 class="feature-title">Current Focus:</h3>
+              <p class="feature-desc">• Personal Website Development<br/>• AWS Solutions Architect Associate<br/>• CompTIA Pentest+</p>
             </div>
             <div class="trusted-by">
               <p>contact@mustafaawad.com</p>
