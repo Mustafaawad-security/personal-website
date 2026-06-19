@@ -1,6 +1,7 @@
 ---
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import Global from "../../styles/global.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -22,20 +23,20 @@ const { Content } = await render(note);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{note.data.title}</title>
+    <Global />
   </head>
-
   <body>
-    <Header />
+    <div class="container">
+      <Header />
+      <main>
+        <article>
+          <h1>{note.data.title}</h1>
+          <p>{note.data.date.toLocaleDateString("en-GB")}</p>
 
-    <main>
-      <article>
-        <h1>{note.data.title}</h1>
-        <p>{note.data.date.toLocaleDateString("en-GB")}</p>
-
-        <Content />
-      </article>
-    </main>
-
+          <Content />
+        </article>
+      </main>
+    </div>
     <Footer />
   </body>
 </html>
