@@ -1,0 +1,41 @@
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("learning-notes");
+
+  return notes.map((note) => ({
+    params: { slug: note.id },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{note.data.title}</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <article>
+        <h1>{note.data.title}</h1>
+        <p>{note.data.date.toLocaleDateString("en-GB")}</p>
+
+        <Content />
+      </article>
+    </main>
+
+    <Footer />
+  </body>
+</html>
