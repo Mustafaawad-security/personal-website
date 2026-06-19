@@ -1,6 +1,7 @@
 ---
-title: 1st learning note
-date: 19/06/2026
+title: "1st learning note"
+date: 2026-06-19
+tags: ["aws"]
 ---
 
 # Test

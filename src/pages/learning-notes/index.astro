@@ -1,6 +1,9 @@
 ---
   import Header from "../../components/Header.astro"
   import Footer from "../../components/Footer.astro"
+  import { getCollection } from "astro:content";
+
+  const notes = await getCollection("learning-notes");
 ---
 
 <!DOCTYPE html>
@@ -8,7 +11,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>产品 - 智能科技</title>
+    <title>Learning Notes</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
       * {
@@ -162,8 +165,8 @@
           <p class="description">
             Structured notes documenting concepts, lessons, and ongoing learning.
           </p>
-          
-          <div class="features">
+          <p>Notes found: {notes.length}</p>
+          <!-- <div class="features">
             <div class="feature-card">
               <h3 class="feature-title">Note-1</h3>
               <p class="feature-desc">12/06/2026</p>
@@ -176,8 +179,7 @@
               <h3 class="feature-title">Note-3</h3>
               <p class="feature-desc">18/06/2026</p>
             </div>
-          </div>
-
+          </div>-->
           <!-- <div style="margin-top: 3rem;">
             <div class="buttons">
               <button class="btn btn-primary">开始使用</button>
@@ -186,7 +188,7 @@
         </section>
       </main>
     </div>
-    <script>
+    <!-- <script>
       const langBtn = document.getElementById('langBtn');
       const langDropdown = document.getElementById('langDropdown');
       const langOptions = document.querySelectorAll('.language-option');
@@ -214,7 +216,7 @@
           }
         });
       });
-    </script>
+    </script> -->
     <Footer />
   </body>
 </html>
