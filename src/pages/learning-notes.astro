@@ -1,4 +1,6 @@
 ---
+  import Header from "../components/Header.astro"
+  import Footer from "../components/Footer.astro"
 ---
 
 <!DOCTYPE html>
@@ -6,7 +8,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>价值 - 智能科技</title>
+    <title>产品 - 智能科技</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
       * {
@@ -26,143 +28,6 @@
         max-width: 1300px;
         margin: 0 auto;
         padding: 0 2.5rem;
-      }
-
-      header {
-        padding: 2rem 0;
-      }
-
-      nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .nav-container {
-        display: inline-flex;
-        align-items: center;
-        gap: 2.5rem;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        padding: 0.6rem 1.5rem;
-        border-radius: 50px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
-
-      .logo-icon {
-        width: 26px;
-        height: 26px;
-        background: #0d0d0d;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .logo-icon::before {
-        content: 'G';
-        color: white;
-        font-weight: 700;
-        font-size: 0.9rem;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.8rem;
-        align-items: center;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: #0d0d0d;
-        font-size: 0.85rem;
-        font-weight: 500;
-        opacity: 0.85;
-        padding: 0.4rem 0.8rem;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-      }
-
-      .nav-links a:hover {
-        background: rgba(0, 0, 0, 0.05);
-      }
-
-      .nav-links a.active {
-        background: #0d0d0d;
-        color: white;
-        opacity: 1;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .language-selector {
-        position: relative;
-      }
-
-      .language-btn {
-        background: transparent;
-        border: none;
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: #0d0d0d;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.3rem 0.6rem;
-        border-radius: 6px;
-        transition: background 0.2s ease;
-      }
-
-      .language-btn:hover {
-        background: #f0f0f0;
-      }
-
-      .language-btn::after {
-        content: '▾';
-        font-size: 0.7rem;
-        opacity: 0.6;
-      }
-
-      .language-dropdown {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 0.5rem;
-        background: white;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        border-radius: 12px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        padding: 0.4rem;
-        min-width: 110px;
-        display: none;
-        z-index: 100;
-      }
-
-      .language-dropdown.show {
-        display: block;
-      }
-
-      .language-option {
-        display: block;
-        padding: 0.5rem 0.8rem;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.85rem;
-        color: #0d0d0d;
-        transition: background 0.2s ease;
-      }
-
-      .language-option:hover {
-        background: #f0f0f0;
       }
 
       main {
@@ -217,34 +82,44 @@
         line-height: 1.7;
       }
 
-      .value-points {
+      .features {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         gap: 2rem;
         margin-top: 3rem;
       }
 
-      .value-item {
+      .feature-card {
         background: white;
-        padding: 2.5rem;
+        padding: 2rem;
         border-radius: 16px;
         border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
       }
 
-      .value-number {
-        font-size: 3rem;
-        font-weight: 700;
-        color: #0d0d0d;
-        margin-bottom: 0.5rem;
+      .feature-card:hover {
+        transform: translateY(-4px);
       }
 
-      .value-title {
+      .feature-icon {
+        width: 48px;
+        height: 48px;
+        background: #f3f3f3;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .feature-title {
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
       }
 
-      .value-desc {
+      .feature-desc {
         color: #555;
         font-size: 0.95rem;
         line-height: 1.6;
@@ -279,67 +154,35 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <nav>
-          <div class="nav-container">
-            <a href="/" class="logo" style="text-decoration: none; color: inherit;">
-              <div class="logo-icon"></div>
-            </a>
-            <div class="language-selector">
-              <button class="language-btn" id="langBtn">中文</button>
-              <div class="language-dropdown" id="langDropdown">
-                <div class="language-option" data-lang="zh">中文</div>
-                <div class="language-option" data-lang="en">English</div>
-              </div>
-            </div>
-            <div class="nav-links">
-              <a href="/">首页</a>
-              <a href="/product">产品</a>
-              <a href="/value" class="active">价值</a>
-              <a href="/stories">故事</a>
-            </div>
-          </div>
-        </nav>
-      </header>
-
+      <Header />
       <main>
         <section class="hero">
-          <span class="badge">我们的价值</span>
-          <h1>为您创造<br /><span>真正的价值</span></h1>
+          <!-- <span class="badge">产品特色</span> -->
+          <h1>Learning Notes</h1>
           <p class="description">
-            我们不仅仅是提供技术，更是与您一起创造持久的商业价值。
+            Structured notes documenting concepts, lessons, and ongoing learning.
           </p>
           
-          <div class="value-points">
-            <div class="value-item">
-              <div class="value-number">10x</div>
-              <h3 class="value-title">效率提升</h3>
-              <p class="value-desc">自动化流程让您的团队效率提升10倍以上。</p>
+          <div class="features">
+            <div class="feature-card">
+              <h3 class="feature-title">Note-1</h3>
+              <p class="feature-desc">12/06/2026</p>
             </div>
-            <div class="value-item">
-              <div class="value-number">50%</div>
-              <h3 class="value-title">成本降低</h3>
-              <p class="value-desc">智能优化帮助您节省50%的运营成本。</p>
+            <div class="feature-card">
+              <h3 class="feature-title">Note-2</h3>
+              <p class="feature-desc">16/06/2026</p>
             </div>
-            <div class="value-item">
-              <div class="value-number">24/7</div>
-              <h3 class="value-title">全天候服务</h3>
-              <p class="value-desc">AI 助手全天候为您服务，永不疲惫。</p>
-            </div>
-            <div class="value-item">
-              <div class="value-number">∞</div>
-              <h3 class="value-title">无限可能</h3>
-              <p class="value-desc">持续学习进化，为您解锁无限可能。</p>
+            <div class="feature-card">
+              <h3 class="feature-title">Note-3</h3>
+              <p class="feature-desc">18/06/2026</p>
             </div>
           </div>
 
-          <div style="margin-top: 3rem;">
+          <!-- <div style="margin-top: 3rem;">
             <div class="buttons">
-              <a href="/product" style="text-decoration: none;">
-                <button class="btn btn-primary">了解更多</button>
-              </a>
+              <button class="btn btn-primary">开始使用</button>
             </div>
-          </div>
+          </div> -->
         </section>
       </main>
     </div>
@@ -372,5 +215,6 @@
         });
       });
     </script>
+    <Footer />
   </body>
 </html>
