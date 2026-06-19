@@ -1,6 +1,6 @@
 ---
-  import Header from "../components/Header.astro"
-  import Footer from "../components/Footer.astro"
+  import Header from "../../components/Header.astro"
+  import Footer from "../../components/Footer.astro"
 ---
 
 <!DOCTYPE html>
@@ -84,7 +84,7 @@
 
       .features {
         display: grid;
-        grid-template-columns: repeat(2 , 1fr);
+        grid-template-columns: repeat(6, 1fr);
         gap: 2rem;
         margin-top: 3rem;
       }
@@ -158,22 +158,22 @@
       <main>
         <section class="hero">
           <!-- <span class="badge">产品特色</span> -->
-          <h1>Projects</h1>
+          <h1>Learning Notes</h1>
           <p class="description">
-            Demonstrations of practical implementation and problem solving.
+            Structured notes documenting concepts, lessons, and ongoing learning.
           </p>
           
           <div class="features">
             <div class="feature-card">
-              <h3 class="feature-title">Project-1</h3>
+              <h3 class="feature-title">Note-1</h3>
               <p class="feature-desc">12/06/2026</p>
             </div>
             <div class="feature-card">
-              <h3 class="feature-title">Project-2</h3>
+              <h3 class="feature-title">Note-2</h3>
               <p class="feature-desc">16/06/2026</p>
             </div>
             <div class="feature-card">
-              <h3 class="feature-title">Project-3</h3>
+              <h3 class="feature-title">Note-3</h3>
               <p class="feature-desc">18/06/2026</p>
             </div>
           </div>
