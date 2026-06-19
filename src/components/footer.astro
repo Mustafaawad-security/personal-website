@@ -2,7 +2,7 @@
 
         .footer-snippet {
           display: block;
-          width:100%
+          width:100%;
         }
 
        .footer-separator {
@@ -15,7 +15,7 @@
             width: 100%;  
             background-color: var(--footer-bg);
             color: var(--footer-text);
-            padding: 2rem 0;
+            padding: 1rem 0;
             justify-content: center;
         }
 
@@ -29,18 +29,20 @@
 
         .footer-nav ul,
         .footer-social ul {
-            /**margin: 0;
-            padding: 0;
-            list-style: none;
-            display: flex;
+            /**
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;**/
+            **/
             display: flex;
             gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            opacity: 0.9;
         }
 
-        .footer-_nav a,
+        .footer-nav a,
         .footer-social a {
             color: var(--footer-text);
             text-decoration: none;
@@ -55,12 +57,11 @@
 
         .footer-copyright {
             font-size: 0.875rem;
+            opacity: 0.7;
         }
         
         /* Media query for larger screens */
         @media (min-width: 768px) {
-            .footer-agency__cta-heading { font-size: 3rem; }
-            .footer-agency__cta-link { font-size: 1.75rem; }
             .footer-agency__bottom-container {
                 flex-direction: row;
                 justify-content: space-between;
@@ -74,18 +75,18 @@
             <div class="container footer-content-container">
                <nav class="footer-social" aria-label="Social Media">
                     <ul>
-                      <li><a href="#">LinkedIn</a></li>
-                      <li><a href="#">GitHub</a></li>
-                      <li><a href="#">Dev.to</a></li>
+                      <li><a href="https://www.linkedin.com/in/mustafaawad-security/" target="_blank">LinkedIn</a></li>
+                      <li><a href="https://github.com/Mustafaawad-security" target="_blank">GitHub</a></li>
+                      <li><a href="https://dev.to/mustafaawad" target="_blank">Dev.to</a></li>
                     </ul>
                 </nav>
                 <nav class="footer-nav" aria-label="Footer Navigation">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Write-ups</a></li>
-                        <li><a href="#">Articles</a></li>
-                        <li><a href="#">Learning Notes</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/write-ups">Write-ups</a></li>
+                        <li><a href="/articles">Articles</a></li>
+                        <li><a href="/learning-notes">Learning Notes</a></li>
                     </ul>
                 </nav>
                 <p class="footer-copyright">&copy; 2026 Mustafa Awad</p>
