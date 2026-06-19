@@ -1,10 +1,10 @@
 ---
-title: "1st Learning Note"
+title: "2st Learning Note"
 date: 2026-06-19
 tags: ["aws"]
 ---
 
-# Test
+# test
 
 ## Test
 

@@ -87,7 +87,7 @@
 
       .features {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         margin-top: 3rem;
       }
@@ -168,7 +168,7 @@
           <p class="description">
             Structured notes documenting concepts, lessons, and ongoing learning.
           </p>
-          <p>Notes found: {notes.length}</p>
+          <!-- <p>Notes found: {notes.length}</p> -->
           <div class="features">
             {notes.map((note) => (
               <a

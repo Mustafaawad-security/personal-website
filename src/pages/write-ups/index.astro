@@ -1,6 +1,9 @@
 ---
   import Header from "../../components/Header.astro"
   import Footer from "../../components/Footer.astro"
+  import { getCollection } from "astro:content";
+
+  const notes = await getCollection("write-ups");
 ---
 
 <!DOCTYPE html>
@@ -84,16 +87,19 @@
 
       .features {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         margin-top: 3rem;
       }
 
       .feature-card {
+        display: block;
         background: white;
         padding: 2rem;
         border-radius: 16px;
         border: 1px solid rgba(0, 0, 0, 0.05);
+        color: inherit;
+        text-decoration: none;
         transition: transform 0.3s ease;
       }
 
@@ -162,8 +168,20 @@
           <p class="description">
             Documentation of labs, exercises, and practical security investigations.
           </p>
-          
           <div class="features">
+            {notes.map((note) => (
+              <a
+                class="feature-card"
+                href={`/write-ups/${note.id}`}
+              >
+                <h3 class="feature-title">{note.data.title}</h3>
+                <p class="feature-desc">
+                  {note.data.date.toLocaleDateString("en-GB")}
+                </p>
+              </a>
+            ))}
+          </div>
+          <!-- <div class="features">
             <div class="feature-card">
               <h3 class="feature-title">Note-1</h3>
               <p class="feature-desc">12/06/2026</p>
@@ -176,7 +194,7 @@
               <h3 class="feature-title">Note-3</h3>
               <p class="feature-desc">18/06/2026</p>
             </div>
-          </div>
+          </div> -->
 
           <!-- <div style="margin-top: 3rem;">
             <div class="buttons">
