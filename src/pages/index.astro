@@ -1,5 +1,6 @@
 ---
  import Header from "../components/Header.astro";
+ import portrait from "../assets/personal-image.png";
 ---
 
 <!DOCTYPE html>
@@ -276,7 +277,7 @@
             <div class="image-container">
               <div class="gradient-bg"></div>
               <div class="portrait-wrapper">
-                <img src="src/assets/personal-image.png" alt="Portrait" />
+                <img src={portrait.src} alt="Portrait of Mustafa Awad" />
               </div>
             </div>
           </div>
