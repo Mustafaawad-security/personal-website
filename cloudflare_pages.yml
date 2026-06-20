@@ -4,7 +4,7 @@
 # Build settings
 build:
   # Directory to deploy (relative to your repo root)
-  publish: dist
+  publish: dist/client
 
   # Build command (defaults to your framework's build command if not set)
   command: pnpm build
