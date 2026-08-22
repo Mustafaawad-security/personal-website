@@ -173,6 +173,9 @@
               <a class="feature-card" href={`/projects/${note.id}`} >
                 <h3 class="feature-title">{note.data.title}</h3>
                 <p class="feature-desc">
+                  {note.data.description}
+                </p> </br>
+                <p class="feature-desc">
                   {note.data.date.toLocaleDateString("en-GB")}
                 </p>
               </a>

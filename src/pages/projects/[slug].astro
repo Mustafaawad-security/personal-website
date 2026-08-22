@@ -31,8 +31,8 @@ const { Content } = await render(note);
       <main>
         <article>
           <h1>{note.data.title}</h1>
+          <p>{note.data.description}</p>
           <p>{note.data.date.toLocaleDateString("en-GB")}</p>
-
           <Content />
         </article>
       </main>

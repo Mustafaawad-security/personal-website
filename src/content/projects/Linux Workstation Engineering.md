@@ -1,12 +1,11 @@
 ---
 title: "Linux Workstation Engineering"
 date: 2026-08-22
+description: "A reproducible personal Linux workstation that I understand, can configure, operate, troubleshoot, automate, and can rebuild from scratch."
 tags: ["linux"]
 ---
 
-## Project Descritpion
 
-A reproducible personal Linux workstation that I understand, can configure, operate, troubleshoot, automate, and can rebuild from scratch.
 ## Project Purpose
 
 The purpose of this project is to engineer a Linux workstation designed around my personal digital needs and workflows. Rather than treating the operating system as a black box, I aim to understand how the system works, how its components interact, and how to effectively configure, operate, troubleshoot, maintain, automate, and reproduce it. The resulting workstation will serve as my primary digital environment while also acting as a practical system through which I can develop my Linux administration and systems engineering skills.

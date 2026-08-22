@@ -35,6 +35,7 @@ const projects = defineCollection({
     // schema = Keypairs must exist
   schema: z.object({
     title: z.string(),
+    description: z.string(),
     date: z.coerce.date(),
     tags: z.array(z.string()).optional(),
   }),
