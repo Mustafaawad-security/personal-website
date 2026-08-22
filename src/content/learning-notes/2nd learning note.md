@@ -1,5 +1,5 @@
 ---
-title: "2st Learning Note"
+title: "2nd Learning Note"
 date: 2026-06-19
 tags: ["aws"]
 ---
