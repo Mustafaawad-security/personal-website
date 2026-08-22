@@ -5,7 +5,7 @@ import Global from "../../styles/global.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const notes = await getCollection("write-ups");
+  const notes = await getCollection("projects");
 
   return notes.map((note) => ({
     params: { slug: note.id },

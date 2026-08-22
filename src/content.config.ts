@@ -27,8 +27,21 @@ const writeUps = defineCollection({
     tags: z.array(z.string()).optional(),
   }),
 });
+const projects = defineCollection({
+  loader: glob({
+    pattern: "**/*.{md,mdx}",
+    base: "./src/content/projects",
+  }),
+    // schema = Keypairs must exist
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
 // here are all the collections I want you to know about. Astro will fetch for folders with these names in content
 export const collections = {
   "learning-notes": learningNotes,
   "write-ups": writeUps,
+  "projects": projects,
 };

@@ -1,7 +1,7 @@
 ---
 title: "Linux Workstation Engineering"
 date: 2026-08-22
-tags: ["aws"]
+tags: ["linux"]
 ---
 
 # Project Descritpion
@@ -10,6 +10,7 @@ A reproducible personal Linux workstation that I understand, can configure, oper
 # Project Purpose
 
 The purpose of this project is to engineer a Linux workstation designed around my personal digital needs and workflows. Rather than treating the operating system as a black box, I aim to understand how the system works, how its components interact, and how to effectively configure, operate, troubleshoot, maintain, automate, and reproduce it. The resulting workstation will serve as my primary digital environment while also acting as a practical system through which I can develop my Linux administration and systems engineering skills.
+
 # Requirements for Success
 #### Group A — System Capability
 
@@ -48,5 +49,6 @@ To achieve the requirements in **Group B**, I will use the following books as pr
 The knowledge gained from these resources will be synthesized and organized into my learning notes. Where relevant, it will also be applied and referenced in project documentation, technical write-ups, and articles.
 
 Finally, I will use the knowledge and skills developed throughout the project to reproduce most of the workstation's configuration using a script. I expect the previous practical work, scripting practice, and understanding of the system to provide the necessary foundation for this stage, supplemented by relevant documentation and guides where needed.
+
 # Results & Evaluation
 # Project-related Write-ups & Learning Notes 

@@ -1,6 +1,9 @@
 ---
   import Header from "../../components/Header.astro"
   import Footer from "../../components/Footer.astro"
+  import { getCollection } from "astro:content";
+
+  const notes = await getCollection("projects");
 ---
 
 <!DOCTYPE html>
@@ -162,9 +165,17 @@
           <p class="description">
             Demonstrations of practical implementation and problem solving.
           </p>
-          
           <div class="features">
-            <div class="feature-card">
+            {notes.map((note) => (
+              <a class="feature-card" href={`/projects/${note.id}`} >
+                <h3 class="feature-title">{note.data.title}</h3>
+                <p class="feature-desc">
+                  {note.data.date.toLocaleDateString("en-GB")}
+                </p>
+              </a>
+             ))}
+          </div>
+            <!-- <div class="feature-card">
               <h3 class="feature-title">Project-1</h3>
               <p class="feature-desc">12/06/2026</p>
             </div>
