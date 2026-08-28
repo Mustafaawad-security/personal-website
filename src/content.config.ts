@@ -22,7 +22,10 @@ const writeUps = defineCollection({
   }),
   // schema = Keypairs must exist
   schema: z.object({
-    title: z.string(),
+    title: z.string(), 
+    description: z.string(),
+    minRead: z.string().optional(),
+    version: z.string().optional(),
     date: z.coerce.date(),
     tags: z.array(z.string()).optional(),
   }),
