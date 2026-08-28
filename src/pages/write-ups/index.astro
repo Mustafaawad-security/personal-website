@@ -135,11 +135,13 @@
       }
 
      .feature-meta {
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.6;
+        color: #d4d4d4;
+        font-size: 0.85rem;
+	line-height: 1.6;
      }
-
+     .feature-minread {
+	margin: 10px;
+     }
      .feature-tags {
         color: #555;
         font-size: 0.95rem;
@@ -201,9 +203,11 @@
 		<div class="feature-tags">{note.data.tags?.map((tag) => (<span class="tag">{tag}</span>))}
 		</div>
 		<br/>
-		<p class="feature-meta">{note.data.date.toLocaleDateString("en-GB")}  
-		<span class="feature-meta">{note.data.minRead}</span>
+		<div class="feature-meta">
+		<p>{note.data.date.toLocaleDateString("en-GB")}  
+		<span class="feature-minread">{note.data.minRead}</span>
 		</p>
+		</div>
               </a>
             ))}
           </div>
