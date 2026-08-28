@@ -29,14 +29,162 @@ const { Content } = await render(note);
     <div class="container">
       <Header />
       <main>
-        <article>
-          <h1>{note.data.title}</h1>
-          <p>{note.data.date.toLocaleDateString("en-GB")}</p>
+        <article class="note-article">
+          <header class="note-header">
+            <p class="note-eyebrow">Learning note</p>
+            <h1>{note.data.title}</h1>
+            <p class="note-date">{note.data.date.toLocaleDateString("en-GB")}</p>
+          </header>
 
-          <Content />
+          <div class="note-content">
+            <Content />
+          </div>
         </article>
       </main>
     </div>
     <Footer />
   </body>
 </html>
+
+
+<style>
+  main {
+    padding-top: 4rem;
+  }
+
+  .note-article {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .note-header {
+    padding-bottom: 2.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #e7e7e7;
+  }
+
+  .note-eyebrow {
+    margin: 0 0 1rem;
+    color: #6b7280;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .note-header h1 {
+    max-width: 760px;
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .note-date {
+    margin: 1.25rem 0 0;
+    color: #6b7280;
+    font-size: 0.92rem;
+  }
+
+  .note-content {
+    color: #303030;
+    font-size: 1.04rem;
+    line-height: 1.8;
+  }
+
+  .note-content :global(h1),
+  .note-content :global(h2),
+  .note-content :global(h3) {
+    color: #111827;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .note-content :global(h1) {
+    margin: 3.5rem 0 1.25rem;
+    font-size: 2rem;
+  }
+
+  .note-content :global(h2) {
+    margin: 3rem 0 1rem;
+    font-size: 1.45rem;
+  }
+
+  .note-content :global(h3) {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.08rem;
+  }
+
+  .note-content :global(p),
+  .note-content :global(ul),
+  .note-content :global(ol) {
+    margin: 0 0 1.25rem;
+  }
+
+  .note-content :global(ul),
+  .note-content :global(ol) {
+    padding-left: 1.5rem;
+  }
+
+  .note-content :global(li + li) {
+    margin-top: 0.45rem;
+  }
+
+  .note-content :global(table) {
+    width: 100%;
+    margin: 1.25rem 0 2rem;
+    border-collapse: collapse;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .note-content :global(th),
+  .note-content :global(td) {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+  }
+
+  .note-content :global(th) {
+    background: #f8fafc;
+    color: #374151;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .note-content :global(tr:last-child td) {
+    border-bottom: 0;
+  }
+
+  .note-content :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 2rem auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 30px rgb(15 23 42 / 8%);
+  }
+
+  @media (max-width: 700px) {
+    main {
+      padding-top: 2.5rem;
+    }
+
+    .note-header {
+      padding-bottom: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .note-content {
+      font-size: 1rem;
+    }
+
+    .note-content :global(table) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+</style>
