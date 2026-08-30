@@ -29,7 +29,7 @@ I divided the workstation into three major areas:
 2. **User Workstation**
 3. **Monitoring & Diagnostic Kit**
 
-![Linux Workstation Design Model 0.2v](/src/assets/lwd-model-0.2v.png)
+![Linux Workstation Design Model 0.2v](../../assets/lwd-model-0.2v.png)
 ## System Foundation
 
 The System Foundation contains the components that establish the basic operating and graphical environment.
