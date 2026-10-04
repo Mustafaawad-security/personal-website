@@ -55,25 +55,25 @@ There are two ways to do this:
 
 The first option is to build the CLI from source. The CLI is built using **Bun**, so I first need to install the Bun package manager and runtime:
 
-```
+```zsh
 sudo pacman -S bun
 ```
 
 I then download the Proton Drive repository:
 
-```
+```zsh
 git clone https://github.com/ProtonDriveApps/sdk.git
 ```
 
 I navigate to the CLI directory:
 
-```
+```zsh
 cd sdk/cli
 ```
 
 From this directory, I can install the required dependencies and build the CLI with Bun:
 
-```
+```zsh
 bun install
 bun run build
 ```
@@ -133,7 +133,7 @@ Before creating the first commit, Git needs to know which files should be includ
 
 I use:
 
-```
+```zsh
 git add .
 ```
 
@@ -155,7 +155,7 @@ This occurred because the `yay` directory in `Downloads` contains its own `.git`
 
 Once the required files have been staged, I can check what Git is about to commit:
 
-```
+```zsh
 git status
 ```
 
@@ -280,7 +280,7 @@ This confirmed that there was a change for the script to process.
 
 I initially ran the script directly:
 
-```
+```zsh
 ~/.scripts/git_backup_script.py
 ```
 
@@ -294,7 +294,7 @@ Linux does not determine how to execute a script simply from its `.py` extension
 
 I therefore added the following line to the beginning of the script:
 
-```
+```python
 #!/usr/bin/env python3
 ```
 
@@ -310,7 +310,7 @@ This time it executed successfully.
 
 I then checked the Git history:
 
-```
+```zsh
 git log
 ```
 
@@ -412,7 +412,7 @@ Here, `--encryption=none` specifies that Borg should not encrypt the repository,
 
 For this step, I will create a manual backup of my `Downloads` directory. Each archive will use the name `workstation` followed by the date of creation. The date allows individual archives to be distinguished when selecting a specific backup.
 
-```
+```zsh
 borg create /mnt/external\ drive/backup_repository::workstation-{now:%Y-%m-%d} ~/Downloads
 ```
 
@@ -422,7 +422,7 @@ This creates an archive in the Borg repository using the `workstation-YYYY-MM-DD
 
 To inspect the contents of a backup without extracting it, I can use `borg list` and specify the repository and archive:
 
-```
+```zsh
 borg list /mnt/external\ drive/backup_repository::workstation-2026-10-02
 ```
 
@@ -432,7 +432,7 @@ This displays the files and directories stored within the selected archive.
 
 To test the restoration process without affecting my existing files, I can first create a temporary directory and extract the archive there:
 
-```
+```zsh
 mkdir ~/borg-test
 cd ~/borg-test
 borg extract /mnt/external\ drive/backup_repository::workstation-2026-10-02
@@ -442,7 +442,7 @@ Because Borg extracts the archive relative to the current working directory, the
 
 If I instead want to restore the files to their original filesystem locations, I can extract the archive from the root directory:
 
-```
+```zsh
 cd /
 sudo borg extract /mnt/external\ drive/backup_repository::workstation-2026-10-02
 ```
@@ -541,7 +541,7 @@ Cron will be used to schedule the Python backup script.
 
 Before editing the crontab, I need to specify which editor should be used:
 
-```
+```zsh
 EDITOR=nvim crontab -e
 ```
 
@@ -559,7 +559,7 @@ This runs the local backup script at 20:00 every Sunday and Wednesday.
 
 First, I needed to authenticate with my Proton Drive account:
 
-```
+```zsh
 proton-drive auth login
 ```
 
@@ -571,7 +571,7 @@ Once authenticated, I can remain inside the Proton Drive CLI environment and run
 
 Once authenticated, I can upload my local `Downloads` directory to my remote Proton Drive storage using:
 
-```
+```zsh
 filesystem upload ~/Downloads /my-files
 ```
 
@@ -581,7 +581,7 @@ This uploads the `Downloads` directory to the `/my-files` directory on Proton Dr
 
 To view the contents of the remote `/my-files` directory, I can use:
 
-```
+```zsh
 filesystem list /my-files
 ```
 
@@ -589,7 +589,7 @@ The output shows the `Downloads` directory, confirming that it was uploaded succ
 
 I can then inspect the contents of the uploaded directory:
 
-```
+```zsh
 filesystem list /my-files/Downloads
 ```
 
@@ -597,7 +597,7 @@ This displays the files contained within my uploaded `Downloads` directory.
 
 To perform a further verification, I can download the uploaded directory back to my local system:
 
-```
+```zsh
 filesystem download /my-files/Downloads /home/master/temporary
 ```
 

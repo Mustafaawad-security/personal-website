@@ -167,6 +167,18 @@ const { Content } = await render(note);
     box-shadow: 0 12px 30px rgb(15 23 42 / 8%);
   }
 
+  .note-content :global(pre) {
+	  padding: 1rem;
+	  overflow-x: auto;
+	  border-radius: 0.6rem;
+	  background: ##24292e;
+  }
+
+  .note-content :global(code) {
+	  font-family: monospace;
+	  font-size: 0.9rem;
+  }
+
   @media (max-width: 700px) {
     main {
       padding-top: 2.5rem;
