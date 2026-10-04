@@ -102,7 +102,7 @@ mv proton-drive ~/.local/bin/
 
 To verify that the installation was successful, I can run:
 
-![1](../../assets/write-ups/backup_stack/1.png)
+![1](/write-ups/backup_stack/1.png)
 ### Python
 
 ```zsh
