@@ -641,7 +641,7 @@ Overall, the project has achieved its current objective and provides a working f
 # Related Documentation
 
 ### Projects:
-[Linux Workstation Engineering](http://localhost:4321/projects/linux-workstation-engineering)
+[Linux Workstation Engineering](http://mustafaawad.com/projects/linux-workstation-engineering)
 ### Learning-Notes:
 
 [Linux Workstation Design](https://mustafaawad.com/learning-notes/linux-workstation-design)
