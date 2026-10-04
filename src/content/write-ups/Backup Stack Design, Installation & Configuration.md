@@ -117,7 +117,9 @@ Since I already use Git for version control of my Obsidian Vault, Book Library, 
 
 After navigating to the `Downloads` directory, I initialise a new Git repository with:
 
-![[Pasted image 20260924125012.png]]
+![2](/write-ups/backup_stack/2.png)
+
+### Python
 
 This creates a hidden `.git` directory inside `Downloads`. The `.git` directory contains the repository's metadata and version-control history.
 
@@ -137,7 +139,7 @@ git add .
 
 The `.` tells Git to stage all files and directories within the current directory.
 
-![[Pasted image 20260924125630.png]]
+![3](/write-ups/backup_stack/3.png)
 
 Git reported the following warning:
 
@@ -159,7 +161,7 @@ git status
 
 After confirming that the correct files have been staged, I create the first commit:
 
-![[Pasted image 20260924130102.png]]
+![4](/write-ups/backup_stack/4.png)
 
 A **commit** records a snapshot of the staged files at a particular point in time. This gives me a point in the repository's history that I can later inspect or return to.
 
@@ -169,7 +171,7 @@ A **commit** records a snapshot of the staged files at a particular point in tim
 
 Finally, I verify that the commit was successfully added to the repository's history:
 
-![[Pasted image 20260924130139.png]]
+![5](/write-ups/backup_stack/5.png)
 
 This displays information about the commit, including its commit hash, author, date, and commit message.
 
@@ -249,7 +251,7 @@ ls -l git_backup_script.py
 
 The output showed the executable permission:
 
-![[Pasted image 20260924144008.png]]
+![6](/write-ups/backup_stack/6.png)
 
 The `x` characters indicate that the file has execute permissions.
 
@@ -270,7 +272,7 @@ git status
 
 Git reported the new file as untracked:
 
-![[Pasted image 20260924144306.png]]
+![7](/write-ups/backup_stack/7.png)
 
 This confirmed that there was a change for the script to process.
 
@@ -284,7 +286,7 @@ I initially ran the script directly:
 
 However, it failed with errors such as:
 
-![[Pasted image 20260924144455.png]]
+![8](/write-ups/backup_stack/8.png)
 
 The problem was not the Python code itself. The operating system was attempting to execute the file as a shell script.
 
@@ -300,7 +302,7 @@ This tells the system to execute the file using `python3`.
 
 After adding the shebang, I ran the script again:
 
-![[Pasted image 20260924150006.png]]
+![9](/write-ups/backup_stack/9.png)
 
 This time it executed successfully.
 
@@ -314,7 +316,7 @@ git log
 
 The new commit appeared at the top of the repository:
 
-![[Pasted image 20260924150211.png]]
+![10](/write-ups/backup_stack/10.png)
 
 This confirmed that the script successfully detected the change and created a commit with the current timestamp.
 
@@ -330,7 +332,7 @@ git status
 
 I then ran the script again:
 
-![[Pasted image 20260924150342.png]]
+![11](/write-ups/backup_stack/11.png)
 
 This confirmed that the script handles both situations correctly:
 
@@ -349,7 +351,7 @@ crontab -e
 
 When I initially ran this command, I received the following error:
 
-![[Pasted image 20260925095213.png]]
+![12](/write-ups/backup_stack/12.png)
 
 The first line is not an error. It simply means that I did not have a crontab yet, so cron was preparing an empty one.
 
@@ -380,13 +382,13 @@ crontab -l
 
 The output showed:
 
-![[Pasted image 20260925100438.png]]
+![13](/write-ups/backup_stack/13.png)
 
 This confirms that the cron job is registered and scheduled to execute the script every day at 8 PM.
 
 However, the script did not run at the specified time, so I suspected that the `cronie` service was not running. I checked its status with:
 
-![[Pasted image 20261002140355.png]]
+![14](/write-ups/backup_stack/14.png)
 
 This confirmed that cronie was not currently running and was also disabled from starting automatically with the system. I enabled and started the service with:
 
@@ -402,7 +404,7 @@ sudo systemctl enable --now cronie
 
 Borg requires a repository where the backup archives will be stored. I chose to store the repository on my external drive:
 
-![[Pasted image 20261002143647.png]]
+![15](/write-ups/backup_stack/15.png)
 
 Here, `--encryption=none` specifies that Borg should not encrypt the repository, while `/mnt/external\ drive/backup_repository` is the location where the repository will be created.
 
@@ -507,13 +509,13 @@ Run the script using the following command:
 
 Initially, I encountered the following error:
 
-![[Pasted image 20261002173623.png]]
+![16](/write-ups/backup_stack/16.png)
 
 I quickly noticed that I had accidentally added an extra `:` to the shebang line. I removed it and ran the script again.
 
 This time, I encountered a different error:
 
-![[Pasted image 20261002174102.png]]
+![17](/write-ups/backup_stack/17.png)
 
 This happened because I was using a Python formatted string literal (f-string). Python interpreted `{now:%Y-%m-%d}` as a Python expression and tried to find a variable called `now`. However, `{now:%Y-%m-%d}` is actually a Borg placeholder that Borg needs to process.
 
@@ -524,11 +526,12 @@ f"{repository}::workstation_{{now:%Y-%m-%d_%H-%M}}"
 ```
 
 After making the changes, I ran the script again. This time, the script completed successfully and returned the message:
-![[Pasted image 20261004190534.png]]
- 
+
+![18](/write-ups/backup_stack/18.png)
+
  To verify that the backup was actually created, I checked the Borg repository using:
  
-![[Pasted image 20261004190709.png]]
+![19](/write-ups/backup_stack/19.png)
 
 This confirms that the script successfully created a backup archive in the Borg repository.
 
