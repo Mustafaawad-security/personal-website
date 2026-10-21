@@ -228,13 +228,21 @@
         line-height: 1.6;
       }
     @media (max-width: 1030px) {
+      h1 {
+        font-size: clamp(2.2rem, 6vw, 4rem);
+      }
+      
+      p {
+        font-size: clamp(1.6rem, 3vw, 4rem);
+      }
+
      .hero {
         display: grid;
         grid-template-columns: 1fr;
         min-height: auto;
         justify-items: stretch;
         justify-content: center;
-       grid-template-columns: minmax(0, 496px);
+        grid-template-columns: minmax(0, 496px);
      }
       .hero-content {
          display: contents;
@@ -245,11 +253,13 @@
 
      .description {
        grid-row: 2;
+       margin-bottom: 0;
      }
 
      .hero-image {
       grid-row: 3;
       max-width: 496px;
+      height: clamp(250px, 120vw, 700px);
       justify-self: stretch;
      }
 
@@ -258,10 +268,12 @@
       top: 0;
       width: 100%;  
       height: 100%;
+      max-height: 100%;
     }
 
     .portrait-wrapper {
       justify-content: center;
+      max-height: 100%;
      }
 
      .portrait-wrapper img {
