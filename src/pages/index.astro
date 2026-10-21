@@ -26,6 +26,7 @@
 
       .container {
         max-width: 1300px;
+        max-height: 1200px;
         margin: 0 auto;
         padding: 0 2.5rem;
       }
@@ -37,9 +38,16 @@
       .hero {
         display: grid;
         grid-template-columns: 55% 45%;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+          "title       portrait"
+          "description portrait"
+          "focus       portrait"
+          "social      portrait";
         gap: 2rem;
-        align-items: center;
-        min-height: 75vh;
+        align-items: stretch;
+        min-height: 200px;
+        max-height: 300px;
       }
 
       .hero-content {
@@ -67,6 +75,10 @@
         border-radius: 50%;
       }
 
+      .title {
+        grid-area: title;
+      }
+
       h1 {
 	      font-size: 4rem;
         font-weight: 700;
@@ -83,6 +95,7 @@
       }
 
       .description {
+        grid-area: description;
         font-size: 0.98rem;
         color: #555;
         margin-bottom: 2.2rem;
@@ -140,6 +153,7 @@
       }
 
       .social-links {
+        grid-area: social;
         margin-top: 2rem;
       }
 
@@ -167,7 +181,8 @@
 
       .hero-image {
         position: relative;
-        height: 700px;
+        grid-area: portrait;
+        height: auto;
       }
 
       .image-container {
@@ -204,6 +219,7 @@
       }
 
        .feature-card {
+        grid-area: focus;
         background: white;
         padding: 2rem;
         border-radius: 16px;
@@ -230,51 +246,65 @@
     @media (max-width: 1030px) {
       h1 {
         font-size: clamp(2.2rem, 6vw, 4rem);
+        margin-bottom: 0;
       }
       
-      p {
-        font-size: clamp(1.6rem, 3vw, 4rem);
-      }
+     .feature-card p{
+        font-size: clamp(0.9rem, 1rem, 1.2rem);
+     }
+     p.description {
+        font-size: clamp(0.9rem, 1rem, 1.2rem);
+     }
+      
 
      .hero {
-        display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(200px, 496px); 
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas:
+          "title"
+          "description"
+          "portrait"
+          "focus"
+          "social";
+        gap: clamp(0.8rem, 1.4rem, 1.6rem);
         min-height: auto;
         justify-items: stretch;
         justify-content: center;
-        grid-template-columns: minmax(0, 496px);
      }
-      .hero-content {
+
+      /* .hero-content {
          display: contents;
-     }
+     }*/
+
      .title {
-       grid-row: 1;
+       grid-area: title;
+       margin-bottom: 0;
      }
 
      .description {
-       grid-row: 2;
+       grid-area: description;
        margin-bottom: 0;
      }
 
      .hero-image {
-      grid-row: 3;
+      grid-area: portrait;
       max-width: 496px;
       height: clamp(250px, 120vw, 700px);
       justify-self: stretch;
      }
 
-    .image-container {
+      .image-container {
       position: static;
       top: 0;
       width: 100%;  
       height: 100%;
       max-height: 100%;
-    }
+      }
 
-    .portrait-wrapper {
+     .portrait-wrapper {
       justify-content: center;
       max-height: 100%;
-     }
+       }
 
      .portrait-wrapper img {
        height: 100%;
@@ -284,14 +314,20 @@
      }
 
      .feature-card {
-      grid-row: 4;
+      grid-area: focus;
       max-width: 496px;
       justify-self: stretch;
      }
 
      .social-links {
-      grid-row:5 ;
+      grid-area: social;
+      margin-top: 10px;
      }
+    }
+    @media (max-width: 450px) {
+        .feature-card p{
+        font-size: clamp(0.75rem, 0.75rem, 1rem);
+      }
     }
     </style>
   </head>
@@ -300,13 +336,9 @@
       <Header />
       <main>
         <section class="hero">
-          <div class="hero-content">
-            <article class="title">
+          <article class="title">
               <span class="badge">Cloud Security</span>
               <h1>Mustafa Awad <!--<br />--><span>Projects, Write-ups & Learning</span></h1>
-              <p class="description">
-              Building expertise in cloud security through hands-on projects, structured learning, and technical writing. This website serves as a public record of that journey.
-              </p>
               <!-- <div class="buttons">
                 <a href="/product" style="text-decoration: none;">
                   <button class="btn btn-primary">Current focus</button>
@@ -316,7 +348,10 @@
                 </a> 
               </div> -->
             </article>
-           <article class="feature-card">
+            <p class="description">
+              Building expertise in cloud security through hands-on projects, structured learning, and technical writing. This website serves as a public record of that journey.
+            </p>
+            <article class="feature-card">
               <h3 class="feature-title">Current Focus:</h3>
               <p class="feature-desc">• Personal Website Development<br/>
                                       • Linux Workstation Engineering Project<br/>
@@ -331,8 +366,6 @@
                 <a href="https://dev.to/mustafaawad"                        target="_blank"><span class="logo-item">Dev.to</span></a>
               </nav>
            </article>
-          </div>
-
           <div class="hero-image">
             <div class="image-container">
               <figure class="portrait-wrapper">
