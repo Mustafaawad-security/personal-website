@@ -7,7 +7,7 @@
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, intial-scale=1.0"/>
     <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
@@ -68,7 +68,7 @@
       }
 
       h1 {
-	font-size: 4rem;
+	      font-size: 4rem;
         font-weight: 700;
         line-height: 1.05;
         margin-bottom: 1.8rem;
@@ -139,11 +139,11 @@
         justify-content: center;
       }
 
-      .trusted-by {
+      .social-links {
         margin-top: 2rem;
       }
 
-      .trusted-by p {
+      .social-links p {
         font-size: 0.75rem;
         color: #888;
         margin-bottom: 1rem;
@@ -176,19 +176,6 @@
         top: 0;
         width: 120%;
         height: 100%;
-      }
-
-      .gradient-bg {
-        position: absolute;
-        left: 10%;
-        top: 40%;
-        transform: translate(-50%, -50%);
-        width: 65%;
-        height: 70%;
-        background: radial-gradient(ellipse at center, #ffd4d4 0%, #ffb3b3 50%, transparent 70%);
-        border-radius: 50%;
-        filter: blur(70px);
-        opacity: 0.3;
       }
 
       .portrait-wrapper {
@@ -240,6 +227,60 @@
         font-size: 0.95rem;
         line-height: 1.6;
       }
+    @media (max-width: 1030px) {
+     .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: auto;
+        justify-items: stretch;
+        justify-content: center;
+       grid-template-columns: minmax(0, 496px);
+     }
+      .hero-content {
+         display: contents;
+     }
+     .title {
+       grid-row: 1;
+     }
+
+     .description {
+       grid-row: 2;
+     }
+
+     .hero-image {
+      grid-row: 3;
+      max-width: 496px;
+      justify-self: stretch;
+     }
+
+    .image-container {
+      position: static;
+      top: 0;
+      width: 100%;  
+      height: 100%;
+    }
+
+    .portrait-wrapper {
+      justify-content: center;
+     }
+
+     .portrait-wrapper img {
+       height: 100%;
+       width: 100%;
+       max-width: 100%;
+       object-fit: contain;
+     }
+
+     .feature-card {
+      grid-row: 4;
+      max-width: 496px;
+      justify-self: stretch;
+     }
+
+     .social-links {
+      grid-row:5 ;
+     }
+    }
     </style>
   </head>
   <body> 
@@ -248,41 +289,43 @@
       <main>
         <section class="hero">
           <div class="hero-content">
-            <span class="badge">Cloud Security</span>
-            <h1>Mustafa Awad <!--<br />--><span>Projects, Write-ups & Learning</span></h1>
-            <p class="description">
+            <article class="title">
+              <span class="badge">Cloud Security</span>
+              <h1>Mustafa Awad <!--<br />--><span>Projects, Write-ups & Learning</span></h1>
+              <p class="description">
               Building expertise in cloud security through hands-on projects, structured learning, and technical writing. This website serves as a public record of that journey.
-            </p>
-            <!-- <div class="buttons">
-              <a href="/product" style="text-decoration: none;">
-                <button class="btn btn-primary">Current focus</button>
-              </a>
-              <a href="/value" style="text-decoration: none;">
-                <button class="btn btn-secondary">查看工作原理</button>
-              </a> 
-            </div> -->
-             <div class="feature-card">
+              </p>
+              <!-- <div class="buttons">
+                <a href="/product" style="text-decoration: none;">
+                  <button class="btn btn-primary">Current focus</button>
+                </a>
+                <a href="/value" style="text-decoration: none;">
+                  <button class="btn btn-secondary">查看工作原理</button>
+                </a> 
+              </div> -->
+            </article>
+           <article class="feature-card">
               <h3 class="feature-title">Current Focus:</h3>
               <p class="feature-desc">• Personal Website Development<br/>
                                       • Linux Workstation Engineering Project<br/>
                                       • Programming & Automation
               </p>
-            </div>
-            <div class="trusted-by">
+            </article>
+           <article class="social-links">
               <p>contact@mustafaawad.com</p>
-              <div class="logos">
+              <nav class="logos">
                 <a href="https://www.linkedin.com/in/mustafaawad-security/" target="_blank"><span class="logo-item">LinkedIn</span></a>
                 <a href="https://github.com/Mustafaawad-security"           target="_blank"><span class="logo-item">GitHub</span></a>
                 <a href="https://dev.to/mustafaawad"                        target="_blank"><span class="logo-item">Dev.to</span></a>
-              </div>
-            </div>
+              </nav>
+           </article>
           </div>
+
           <div class="hero-image">
             <div class="image-container">
-              <div class="gradient-bg"></div>
-              <div class="portrait-wrapper">
-                <img src={portrait.src} alt="Portrait of Mustafa Awad" />
-              </div>
+              <figure class="portrait-wrapper">
+                <img src={portrait.src} alt="Portrait of Mustafa Awad"/>
+              </figure>
             </div>
           </div>
         </section>
