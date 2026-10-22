@@ -7,6 +7,9 @@
         margin: 0;
       }
 
+      .mobile-nav {
+        display: none;
+      }
     header {
         padding: 2rem 0;
       }
@@ -143,11 +146,100 @@
       .language-option:hover {
         background: #f0f0f0;
       }
+      .nav-links {
+
+      }
+      @media (max-width: 1030px) {
+        .mobile-nav {
+          display: flex;
+          align-items: center;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        header {
+          padding-bottom: 0rem;
+          padding-top: 2rem;
+        }
+
+        .nav-container {
+          display: inline-flex;
+          max-width: 496px;
+          gap: 2.5rem;
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(10px);
+          padding: 0.6rem 1.5rem;
+          border-radius: 50px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .documentation-dropdown {
+          position: relative;
+        }
+
+       .documentation-dropdown summary {
+          /**cursor: pointer;**/
+          list-style: none;
+          padding: 0.4rem 0.8rem;
+          border-radius: 8px;
+          width: 81%;
+        }
+
+        .documentation-dropdown summary:hover {
+          background: #f0f0f0;
+        }
+
+        .documentation-dropdown ul {
+          position: absolute;
+          top: 100%;
+          /**width: max-content;**/
+          max-width: calc(100vw - 4rem);
+          box-sizing: border-box;
+          margin: 0.5rem 0 0;
+          padding: 0.6rem;
+          list-style: none;
+          background: white;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 12px;
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+          z-index: 100;
+        }
+
+        .documentation-dropdown ul a {
+          display: block;
+          color: #0d0d0d;
+          font-size: 0.8rem;
+          font-weight: 500;
+          opacity: 0.85;
+          padding: 0.4rem 0.8rem;
+          border-radius: 8px;
+          text-decoration: none;
+        }
+
+        .documentation-dropdown ul a:hover {
+          background: #f0f0f0;
+        }
+      }
+      @media (max-width: 800px) {
+        .nav-container {
+          display: inline-flex;
+          align-items: center;
+          gap: 0rem;
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(10px);
+          padding: 0.6rem 1.5rem;
+          border-radius: 50px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          max-width: 496px;
+        }
+      }
     </style>
     <header>
-        <nav>
+        <nav class="desktop-nav">
           <div class="nav-container">
-            <!-- <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+            <!--<a href="/" class="logo" style="text-decoration: none; color: inherit;">
               <div class="logo-icon"></div>
             </a>
             <div class="language-selector">
@@ -163,7 +255,26 @@
               <a href="/write-ups">Write-ups</a>
               <!-- <a href="/articles">Articles</a> -->
               <a href="/learning-notes">Learning Notes</a>
+              <!-- <a href="/certifications">Certifications</a>
+              <a href="/about">About</a>-->
             </div>
           </div>
+        </nav>
+        <nav class="mobile-nav">
+          <section class="nav-container">
+            <article class="nav-links">
+              <!-- <a href="/" class="active">Home</a> -->
+              <a href="/">Home</a>
+              <details class="documentation-dropdown">
+                <summary>Documentation</summary>
+                <ul>
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/write-ups">Write-ups</a></li>
+                  <li><a href="/learning-notes">Learning Notes</a></li>
+                </ul>
+             </details>
+
+            </article>
+          </section>
         </nav>
       </header>
