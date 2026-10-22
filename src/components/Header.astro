@@ -187,10 +187,9 @@
           width: 81%;
         }
 
-        .documentation-dropdown summary:hover {
+        .documentation-dropdown[open] summary:hover {
           background: #f0f0f0;
         }
-
         .documentation-dropdown ul {
           position: absolute;
           top: 100%;
@@ -278,3 +277,12 @@
           </section>
         </nav>
       </header>
+      <script>
+        document.addEventListener("click", (event) => {
+          const dropdown = document.querySelector(".documentation-dropdown");
+
+          if (dropdown && !dropdown.contains(event.target)) {
+            dropdown.open = false;
+            }
+        });
+      </script>
