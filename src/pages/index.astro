@@ -39,8 +39,7 @@
         display: grid;
         grid-template-columns: 55% 45%;
         grid-template-rows: repeat(5, 1fr);
-        grid-template-areas:
-          "margin      margin"
+        grid-template-areas:      
           "title       portrait"
           "description portrait"
           "focus       portrait"
@@ -49,10 +48,7 @@
         align-items: stretch;
         min-height: 200px;
         max-height: 300px;
-      }
-      .margin {
-        grid-area: margin;
-        margin: 30px;
+        margin-top: 80px;
       }
       .hero-content {
         padding-right: 1rem;
@@ -259,7 +255,6 @@
      p.description {
         font-size: clamp(0.9rem, 1rem, 1.2rem);
      }
-      
 
      .hero {
         grid-template-columns: minmax(200px, 496px); 
@@ -274,6 +269,7 @@
         min-height: auto;
         justify-items: stretch;
         justify-content: center;
+        margin-top: 10px;
      }
       /* .hero-content {
          display: contents;
@@ -330,6 +326,7 @@
       margin-bottom: 10px;
      }
     }
+
     @media (max-width: 450px) {
         .feature-card p{
         font-size: clamp(0.75rem, 0.75rem, 1rem);
@@ -342,8 +339,6 @@
       <Header />
       <main>
         <section class="hero">
-          <div class="margin">
-          </div>
           <article class="title">
               <span class="badge">Cloud Security</span>
               <h1>Mustafa Awad <!--<br />--><span>Projects, Write-ups & Learning</span></h1>
