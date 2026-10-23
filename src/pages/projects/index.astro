@@ -28,7 +28,11 @@
       }
 
       .container {
+        display: block;
+        box-sizing: border-box;
         max-width: 1300px;
+        max-height:1200px;
+        overflow: hidden;
         margin: 0 auto;
         padding: 0 2.5rem;
       }
@@ -38,10 +42,22 @@
       }
 
       .hero {
+        display: grid;
+        box-sizing: border-box;
+        max-width: 1300px;
+        max-height: 1200px;
+        overflow: hidden;
+        justify-items: start;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas:
+          "title"
+          "list";
+        gap: 20px;
         padding: 4rem 0;
       }
 
-      .badge {
+      /** .badge {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
@@ -60,7 +76,7 @@
         height: 8px;
         background: #0d0d0d;
         border-radius: 50%;
-      }
+      }**/
 
       h1 {
         font-size: 4rem;
@@ -77,24 +93,67 @@
         font-family: Georgia, 'Times New Roman', Times, serif;
       }
 
+      .title {
+        grid-area: title;
+        height: 30px;
+      }
+
       .description {
+        grid-area: description;
         font-size: 0.98rem;
         color: #555;
-        margin-bottom: 3rem;
         max-width: 520px;
         line-height: 1.7;
       }
 
-      .features {
+      .list {
+        grid-area: list;
         display: grid;
         grid-template-columns: repeat(1 , 1fr);
-        gap: 2rem;
+        grid-template-rows: 1fr;
+        gap: 1rem;
         margin-top: 3rem;
       }
+
+     /** .nav-container {
+        height: auto;
+      }
+
+      #filter_menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        list-style: none;
+      }
+
+      #filter_menu li{
+        box-sizing: border-box;
+        margin: 10px;
+        text-decoration: none;
+        color: #0d0d0d;
+        font-size: 0.85rem;
+        font-weight: 500;
+        opacity: 0.85;
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      #filter_menu li:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+
+      #filter_menu li.active {
+        background: #0d0d0d;
+        color: white;
+        opacity: 1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }**/
 
       .feature-card {
         display: block;
         background: white;
+        width: 1300px;
         padding: 2rem;
         border-radius: 16px;
         border: 1px solid rgba(0, 0, 0, 0.05);
@@ -164,11 +223,28 @@
       <main>
         <section class="hero">
           <!-- <span class="badge">产品特色</span> -->
-          <h1>Projects</h1>
-          <p class="description">
-            Practical technical work focused on building, implementing, and applying knowledge.
-          </p>
-          <div class="features">
+          <article class="title">
+            <h1>Projects</h1>
+            <p class="description">
+              Practical technical work focused on building, implementing, and applying knowledge.
+            </p>
+          </article>
+          <div class="list">
+            <!-- <nav class="nav-container">
+              <ul id="filter_menu">
+                <li>all projects</li>
+                <li>linux</li>
+                <li>automation</li>
+                <li>networking</li>
+                <li>security</li>
+                <li>cloud</li>
+                <li>other</li>
+              </ul>
+              <artile id="search">
+              </artile>
+              <article id="sort">
+              </article>
+            </nav> -->
             {notes.map((note) => (
               <a class="feature-card" href={`/projects/${note.id}`} >
                 <h3 class="feature-title">{note.data.title}</h3>
